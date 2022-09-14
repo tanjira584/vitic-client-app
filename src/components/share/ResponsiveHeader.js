@@ -10,9 +10,17 @@ import {
     faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 const ResponsiveHeader = () => {
     const [cateMenu, setCateMenu] = useState(false);
     const [mobile, setMobile] = useState(false);
+    const [user, loading] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+    };
     const handleCategoryMenu = () => {
         setCateMenu(!cateMenu);
     };
@@ -20,7 +28,7 @@ const ResponsiveHeader = () => {
         setMobile(!mobile);
     };
     return (
-        <div className="responsive-header">
+        <div className="responsive-header d-block d-lg-none">
             <div className="container-md">
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="">
@@ -105,20 +113,34 @@ const ResponsiveHeader = () => {
                                     ></FontAwesomeIcon>
                                 </Link>
                             </li>
-
-                            <li className="">
-                                <Link
-                                    className=""
-                                    aria-current="page"
-                                    to="/login"
-                                >
-                                    Login/Register
-                                    <FontAwesomeIcon
-                                        className="icon"
-                                        icon={faAngleRight}
-                                    ></FontAwesomeIcon>
-                                </Link>
-                            </li>
+                            {user ? (
+                                <li className="">
+                                    <button
+                                        className=""
+                                        onClick={handleSignOut}
+                                    >
+                                        Signout
+                                        <FontAwesomeIcon
+                                            className="icon"
+                                            icon={faAngleRight}
+                                        ></FontAwesomeIcon>
+                                    </button>
+                                </li>
+                            ) : (
+                                <li className="">
+                                    <Link
+                                        className=""
+                                        aria-current="page"
+                                        to="/login"
+                                    >
+                                        Login/Register
+                                        <FontAwesomeIcon
+                                            className="icon"
+                                            icon={faAngleRight}
+                                        ></FontAwesomeIcon>
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
                     </nav>
                 </div>

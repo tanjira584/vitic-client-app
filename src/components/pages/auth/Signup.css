@@ -1,0 +1,73 @@
+.signup-form-box h2 {
+    position: relative;
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 20px;
+}
+.signup-form-box h2::after {
+    content: " ";
+    position: absolute;
+    width: 210px;
+    height: 2px;
+    background-color: #31b2ee;
+    bottom: -2px;
+    left: calc(50% - 105px);
+}
+.signup-form-box .icon {
+    font-size: 30px;
+}
+.signup-form {
+    padding: 50px 100px;
+}
+.input-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+.input-box label span {
+    color: red;
+}
+.input-box input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid #e1e1e1;
+    outline: none;
+}
+.signup-form input[type="submit"] {
+    display: inline-block;
+    padding: 14px 85px;
+    border: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #31b2ee;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.signup-form a {
+    text-decoration: none;
+    color: #31b2ee;
+    border-bottom: 1px solid #31b2ee;
+    transition: 0.2s all;
+}
+
+.google-btn {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 2px solid #31b2ee;
+    color: #31b2ee;
+    transition: 0.5s all;
+}
+.google-btn:hover {
+    border: 2px solid #31b2ee;
+    color: #31b2ee;
+}
+@media screen and (max-width: 768px) {
+    .signup-form {
+        padding: 40px 40px;
+    }
+}

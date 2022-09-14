@@ -115,7 +115,27 @@
     display: inline-block;
     text-align: end;
 }
-
+.mobile-nav ul li button {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    color: #000;
+    transition: 0.5s all;
+    width: 100%;
+    padding: 8px 0;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+}
+.mobile-nav ul li button .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    text-align: end;
+}
 /*--------------Category Responsive Menu------------*/
 .category-menu {
     position: fixed;

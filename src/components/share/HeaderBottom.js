@@ -4,8 +4,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import bg from "./../../images/bg-header.webp";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const HeaderBottom = () => {
+    const [user] = useAuthState(auth);
+    const handleSignOut = (e) => {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+    };
     return (
         <div
             style={{ backgroundColor: "#f3f3f3" }}
@@ -73,16 +81,26 @@ const HeaderBottom = () => {
                                                 Blogs
                                             </Link>
                                         </li>
-
-                                        <li className="nav-item">
-                                            <Link
-                                                className=""
-                                                aria-current="page"
-                                                to="/login"
-                                            >
-                                                Login/Register
-                                            </Link>
-                                        </li>
+                                        {user ? (
+                                            <li className="nav-item">
+                                                <button
+                                                    className="signout-btn bg-transparent"
+                                                    onClick={handleSignOut}
+                                                >
+                                                    Signout
+                                                </button>
+                                            </li>
+                                        ) : (
+                                            <li className="nav-item">
+                                                <Link
+                                                    className=""
+                                                    aria-current="page"
+                                                    to="/login"
+                                                >
+                                                    Login/Register
+                                                </Link>
+                                            </li>
+                                        )}
                                     </ul>
                                 </nav>
                             </div>

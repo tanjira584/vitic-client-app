@@ -1,13 +1,14 @@
 import "./App.css";
 import { ToastContainer } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/pages/home/Home";
 
 function App() {
     return (
         <div className="">
-            <h2 className="text-center text-danger">Hello World</h2>
-            <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
+            <Routes>
+                <Route path="/" element={<Home></Home>}></Route>
+            </Routes>
             <ToastContainer></ToastContainer>
         </div>
     );

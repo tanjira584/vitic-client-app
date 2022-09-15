@@ -15,11 +15,12 @@ const BestSellingSection = () => {
                             <div>
                                 <h4>best selling products</h4>
                             </div>
-                            <div>
+                            <div className="w-25 text-end">
                                 <FontAwesomeIcon
                                     icon={faCaretLeft}
                                 ></FontAwesomeIcon>
                                 <FontAwesomeIcon
+                                    className="ms-2"
                                     icon={faCaretRight}
                                 ></FontAwesomeIcon>
                             </div>

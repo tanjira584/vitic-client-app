@@ -6,6 +6,7 @@ import Login from "./components/pages/auth/Login";
 import Signup from "./components/pages/auth/Signup";
 import RequireAuth from "./components/pages/auth/RequireAuth";
 import Products from "./components/pages/products/Products";
+import Purchase from "./components/pages/purchase/Purchase";
 
 function App() {
     return (
@@ -19,6 +20,14 @@ function App() {
                     element={
                         <RequireAuth>
                             <Products></Products>
+                        </RequireAuth>
+                    }
+                ></Route>
+                <Route
+                    path="/purchase"
+                    element={
+                        <RequireAuth>
+                            <Purchase></Purchase>
                         </RequireAuth>
                     }
                 ></Route>

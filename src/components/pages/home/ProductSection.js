@@ -10,6 +10,9 @@ const ProductSection = () => {
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, []);
+    const handleProduct = (product) => {
+        localStorage.setItem("product", product._id);
+    };
     console.log(products);
     return (
         <div className="product-section py-5">
@@ -29,7 +32,13 @@ const ProductSection = () => {
                                         style={{ width: "100%" }}
                                     />
                                     <div className="purchase-btn">
-                                        <Link className="" to="/purchase">
+                                        <Link
+                                            className=""
+                                            to="/purchase"
+                                            onClick={() =>
+                                                handleProduct(product)
+                                            }
+                                        >
                                             Buy Now
                                         </Link>
                                     </div>

@@ -1,0 +1,24 @@
+/*-----Banner Button----*/
+.slide-content h2 {
+    font-size: 60px;
+    font-weight: bold;
+}
+.banner-btn {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    background: #31b2ee;
+    padding: 8px 24px;
+    border-radius: 16px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    transition: 0.5s all;
+}
+.slider-btn {
+    background-color: #000;
+}
+.banner-btn:hover {
+    background-color: #129bda;
+    color: #fff;
+}

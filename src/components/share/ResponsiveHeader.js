@@ -16,7 +16,7 @@ import { signOut } from "firebase/auth";
 const ResponsiveHeader = () => {
     const [cateMenu, setCateMenu] = useState(false);
     const [mobile, setMobile] = useState(false);
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const handleSignOut = () => {
         signOut(auth);
         localStorage.removeItem("accessToken");

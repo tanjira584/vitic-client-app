@@ -1,7 +1,7 @@
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Footer from "../../share/Footer";
 import Header from "../../share/Header";
 import "./Signup.css";
@@ -16,11 +16,10 @@ import auth from "../../../firebase.init";
 
 const Signup = () => {
     const [user, setUser] = useState({ name: "", email: "", password: "" });
-    const [signInWithGoogle, guser, gloading, gerror] =
-        useSignInWithGoogle(auth);
-    const [createUserWithEmailAndPassword, euser, eloading, eerror] =
+    const [signInWithGoogle, guser, gloading] = useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, euser, eloading] =
         useCreateUserWithEmailAndPassword(auth);
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const [updateProfile, updating] = useUpdateProfile(auth);
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
@@ -35,7 +34,26 @@ const Signup = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle();
     };
-
+    if (authuser || euser || guser) {
+        fetch("http://localhost:5000/login", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ email: authuser.email }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.accessToken);
+            });
+        return <Navigate to="/"></Navigate>;
+    }
+    if (gloading || eloading) {
+        return <p className="text-center pt-5 mt-5">Loading...</p>;
+    }
+    if (updating) {
+        return <p className="text-center pt-5 mt-5">Updating...</p>;
+    }
     return (
         <div>
             <Header></Header>

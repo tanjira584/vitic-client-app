@@ -2,7 +2,9 @@ import React from "react";
 import Footer from "../../share/Footer";
 import Header from "../../share/Header";
 import Banner from "./Banner";
+import Policy from "./Policy";
 import ProductSection from "./ProductSection";
+import ReviewSection from "./ReviewSection";
 import SecondaryBanner from "./SecondaryBanner";
 
 const Home = () => {
@@ -12,7 +14,8 @@ const Home = () => {
             <Banner></Banner>
             <SecondaryBanner></SecondaryBanner>
             <ProductSection></ProductSection>
-            <div style={{ height: "500px" }}></div>
+            <ReviewSection></ReviewSection>
+            <Policy></Policy>
             <Footer></Footer>
         </div>
     );

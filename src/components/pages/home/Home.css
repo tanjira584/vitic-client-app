@@ -89,3 +89,35 @@
     transform: scale(1);
     opacity: 1;
 }
+/*---------------Review Section--------------*/
+.business-counter {
+    background-color: #31b2ee;
+}
+.counter-box .icon {
+    font-size: 40px;
+    color: #fff;
+}
+.counter-box h2 {
+    color: #fff;
+    margin-bottom: 0;
+}
+.counter-box h4 {
+    color: #fff;
+}
+/*------------------Review Section-----------*/
+.star-list li {
+    display: inline;
+    margin-left: 6px;
+}
+.star-list li .icon {
+    color: #f2ab08;
+}
+.review-section .review {
+    position: relative;
+}
+.review-section .review .author {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}

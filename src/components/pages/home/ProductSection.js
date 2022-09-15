@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import banner5 from "./../../../images/banner-5.webp";
 
 const ProductSection = () => {
     const [products, setProduct] = useState([]);
@@ -54,7 +55,7 @@ const ProductSection = () => {
                                         </span>
                                     </div>
                                     <div className="mb-3">
-                                        <span className="quantity">
+                                        <span className="quantity ">
                                             {product.min}
                                         </span>{" "}
                                         <span className="text-muted min-order">
@@ -65,6 +66,25 @@ const ProductSection = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div
+                    className="secondary-banner"
+                    style={{ backgroundImage: `url(${banner5})` }}
+                >
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="content text-center">
+                                <h3>HAND TOOL BRANDS</h3>
+                                <p>
+                                    Power Tools, Good Tools, Top Tools, Best
+                                    Tools, Corona, Hary Tool
+                                </p>
+                                <Link className="banner-btn" to="/">
+                                    Shop Now
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

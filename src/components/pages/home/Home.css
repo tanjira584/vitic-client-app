@@ -121,3 +121,79 @@
     left: 0;
     bottom: 0;
 }
+/*----------------Secondary Banner---------------*/
+.secondary-banner {
+    padding: 50px 50px;
+    margin-top: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.secondary-banner h3 {
+    font-weight: 700;
+}
+.secondary-banner p {
+    font-weight: 600;
+}
+/*----------------Best Selling--------------*/
+.best-selling {
+    padding: 70px 0;
+    background-color: #f3f3f3;
+}
+.best-selling .product {
+    background-color: #fff;
+    padding: 30px;
+}
+.best-selling .product .img img {
+    width: 100%;
+}
+.best-selling .discount {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.best-selling .discount h3 {
+    font-weight: 700;
+}
+.best-selling .discount input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #f7f7f7;
+    margin-bottom: 10px;
+    outline: none;
+}
+.best-selling .discount input[type="submit"] {
+    background-color: #f2ab08;
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #f2ab08;
+}
+.best-selling .product .info .category {
+    font-size: 12px;
+    font-weight: bold;
+}
+.best-selling .product .info h2 {
+    font-size: 26px;
+    text-transform: capitalize;
+    padding-bottom: 12px;
+}
+.best-selling .product .info .price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #31b2ee;
+}
+.best-selling .product .info .piece {
+    font-size: 14px;
+}
+.best-selling .product .info .quantity {
+    font-size: 20px;
+    font-weight: 700;
+    color: #31b2ee;
+}
+.best-selling .product .info .min-order {
+    font-size: 14px;
+}
+
+.best-selling .product .info ul li {
+    margin-bottom: 8px;
+}

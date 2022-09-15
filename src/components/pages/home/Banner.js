@@ -40,7 +40,10 @@ const Banner = () => {
                                         </h5>
                                         <h5 className="mb-4">
                                             Price:{" "}
-                                            <span className="text-primary">
+                                            <span
+                                                style={{ color: "#31b2ee" }}
+                                                className=""
+                                            >
                                                 {" "}
                                                 $200
                                             </span>

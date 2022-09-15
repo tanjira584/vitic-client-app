@@ -22,3 +22,70 @@
     background-color: #129bda;
     color: #fff;
 }
+.banner-box {
+    transition: 0.5s all;
+}
+.banner-box:hover {
+    background-position: 50% 90%;
+}
+
+/*------------------------Product Section---------------*/
+.product-box {
+    position: relative;
+    transition: 0.3s;
+}
+.product-box .img {
+    overflow: hidden;
+}
+.product-box .img img {
+    transition: 0.3s;
+}
+.product-box:hover .img img {
+    transform: scale(1.1);
+}
+.product-box .price,
+.product-box .quantity {
+    font-size: 20px;
+    font-weight: 700;
+    color: #31b2ee;
+}
+.product-box .piece,
+.product-box .min-order {
+    font-size: 14px;
+}
+.product-box h5:hover,
+.product-box .category:hover {
+    color: #31b2ee;
+}
+.product-box .purchase-btn {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+.product-box .purchase-btn a {
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 8px 50px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #31b2ee;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    transition: 0.5s;
+    transform: scale(0.8);
+    opacity: 0;
+}
+.product-box .purchase-btn a:hover {
+    background-color: #31b2ee;
+    color: #fff;
+}
+.product-box:hover .purchase-btn a {
+    transform: scale(1);
+    opacity: 1;
+}

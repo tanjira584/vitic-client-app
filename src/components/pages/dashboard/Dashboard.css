@@ -1,0 +1,22 @@
+.dashboard-sidebar {
+    height: 100%;
+}
+.dashboard-sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dashboard-sidebar ul li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    display: block;
+    padding: 10px;
+    transition: 0.5s all;
+    border-bottom: 1px solid #363636;
+}
+.dashboard-sidebar ul li a:hover,
+.dashboard-sidebar ul li a.active {
+    background-color: black;
+    color: #fff;
+}

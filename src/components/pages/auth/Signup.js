@@ -29,18 +29,27 @@ const Signup = () => {
         await createUserWithEmailAndPassword(user.email, user.password);
         await updateProfile({ displayName: user.name, photoURL: " " });
         e.target.reset();
-        setUser({ name: "", email: "", password: "" });
+        /* setUser({ name: "", email: "", password: "" }); */
     };
     const handleGoogleSignIn = () => {
         signInWithGoogle();
     };
-    if (authuser || euser || guser) {
-        fetch("http://localhost:5000/login", {
-            method: "POST",
+    if (gloading || eloading) {
+        return <p className="text-center pt-5 mt-5">Loading...</p>;
+    }
+    if (updating) {
+        return <p className="text-center pt-5 mt-5">Updating...</p>;
+    }
+    if (euser || guser || authuser) {
+        const user = euser?.user?.email || guser?.user?.email;
+        const name = euser?.user?.displayName || guser?.user?.displayName;
+        const currentUser = { email: user, name: name };
+        fetch(`http://localhost:5000/user/${user}`, {
+            method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({ email: authuser.email }),
+            body: JSON.stringify(currentUser),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -48,12 +57,7 @@ const Signup = () => {
             });
         return <Navigate to="/"></Navigate>;
     }
-    if (gloading || eloading) {
-        return <p className="text-center pt-5 mt-5">Loading...</p>;
-    }
-    if (updating) {
-        return <p className="text-center pt-5 mt-5">Updating...</p>;
-    }
+
     return (
         <div>
             <Header></Header>

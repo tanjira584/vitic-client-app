@@ -35,13 +35,16 @@ const Login = () => {
     if (loading || eloading || gloading) {
         return <p className="text-center mt-5 pt-5">Loading....</p>;
     }
-    if (authuser || euser || guser) {
-        fetch("http://localhost:5000/login", {
-            method: "POST",
+    if (euser || guser || authuser) {
+        const user = euser?.user?.email || guser?.user?.email;
+        const name = euser?.user?.displayName || guser?.user?.displayName;
+        const currentUser = { email: user, name: name };
+        fetch(`http://localhost:5000/user/${user}`, {
+            method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({ email: authuser.email }),
+            body: JSON.stringify(currentUser),
         })
             .then((res) => res.json())
             .then((data) => {

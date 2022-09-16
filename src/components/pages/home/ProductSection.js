@@ -13,7 +13,7 @@ const ProductSection = () => {
     const handleProduct = (product) => {
         localStorage.setItem("product", product._id);
     };
-    console.log(products);
+
     return (
         <div className="product-section py-5">
             <div className="container-md">

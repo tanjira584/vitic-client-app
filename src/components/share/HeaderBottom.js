@@ -81,6 +81,17 @@ const HeaderBottom = () => {
                                                 Blogs
                                             </Link>
                                         </li>
+                                        {user && (
+                                            <li className="nav-item">
+                                                <Link
+                                                    className=""
+                                                    aria-current="page"
+                                                    to="/dashboard"
+                                                >
+                                                    Dashboard
+                                                </Link>
+                                            </li>
+                                        )}
                                         {user ? (
                                             <li className="nav-item">
                                                 <button

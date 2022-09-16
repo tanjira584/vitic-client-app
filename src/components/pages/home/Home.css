@@ -139,6 +139,9 @@
     padding: 70px 0;
     background-color: #f3f3f3;
 }
+.section-info h4 {
+    text-transform: capitalize;
+}
 .best-selling .product {
     background-color: #fff;
     padding: 30px;

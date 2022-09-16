@@ -36,7 +36,6 @@ const Purchase = () => {
     }, [prodId]);
     const handleChange = (e) => {
         setClient({ ...client, [e.target.name]: e.target.value });
-        console.log(client.quantity);
     };
     let errorText;
     const handleQuantity = (e) => {
@@ -47,16 +46,25 @@ const Purchase = () => {
         } else if (parseInt(e.target.value) > parseInt(product.stock)) {
             errorText = `${product.stock} piece product available`;
             setQtyerror(errorText);
+        } else if (!e.target.value) {
+            errorText = `Please Order minimum ${product.min} piece`;
+            setQtyerror(errorText);
         } else {
             errorText = "";
             setQtyerror(errorText);
         }
         // console.log(client.quantity);
     };
+    const handleIncrement = (e) => {
+        setClient({ ...client, quantity: parseInt(client.quantity) + 1 });
+    };
+    const handleDecrement = (e) => {
+        setClient({ ...client, quantity: client.quantity - 1 });
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
-        /*
-        fetch("https://dry-forest-04223.herokuapp.com/orders", {
+
+        fetch("http://localhost:5000/orders", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -83,7 +91,6 @@ const Purchase = () => {
                     quantity: 0,
                 });
             });
-        */
     };
     return (
         <div>
@@ -166,10 +173,12 @@ const Purchase = () => {
                                                         <span
                                                             style={{
                                                                 fontSize:
-                                                                    "14px",
+                                                                    "16px",
                                                                 fontWeight:
                                                                     "500",
                                                                 color: "#31B2EE",
+                                                                fontStyle:
+                                                                    "italic",
                                                             }}
                                                             className=" text-uppercase"
                                                         >
@@ -280,6 +289,7 @@ const Purchase = () => {
                                             name="phone"
                                             value={client.phone}
                                             onChange={handleChange}
+                                            required
                                         />
                                     </div>
                                     <div className="mb-3">
@@ -297,6 +307,7 @@ const Purchase = () => {
                                             name="country"
                                             value={client.country}
                                             onChange={handleChange}
+                                            required
                                         />
                                     </div>
                                     <div className="mb-3">
@@ -314,6 +325,7 @@ const Purchase = () => {
                                             name="city"
                                             value={client.city}
                                             onChange={handleChange}
+                                            required
                                         />
                                     </div>
                                     <div className="mb-3">
@@ -331,6 +343,7 @@ const Purchase = () => {
                                             name="zip"
                                             value={client.zip}
                                             onChange={handleChange}
+                                            required
                                         />
                                     </div>
                                     <div className="mb-3">
@@ -347,6 +360,7 @@ const Purchase = () => {
                                             <button
                                                 className="dec qtybutton px-3  text-light"
                                                 type="button"
+                                                onClick={handleDecrement}
                                             >
                                                 -
                                             </button>
@@ -361,6 +375,7 @@ const Purchase = () => {
                                             <button
                                                 className="inc qtybutton px-3 text-light"
                                                 type="button"
+                                                onClick={handleIncrement}
                                             >
                                                 +
                                             </button>

@@ -113,6 +113,21 @@ const ResponsiveHeader = () => {
                                     ></FontAwesomeIcon>
                                 </Link>
                             </li>
+                            {user && (
+                                <li className="">
+                                    <Link
+                                        className=""
+                                        aria-current="page"
+                                        to="/dashboard"
+                                    >
+                                        Dashboard
+                                        <FontAwesomeIcon
+                                            className="icon"
+                                            icon={faAngleRight}
+                                        ></FontAwesomeIcon>
+                                    </Link>
+                                </li>
+                            )}
                             {user ? (
                                 <li className="">
                                     <button

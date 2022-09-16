@@ -9,6 +9,7 @@ import Products from "./components/pages/products/Products";
 import Purchase from "./components/pages/purchase/Purchase";
 import Dashboard from "./components/pages/dashboard/Dashboard";
 import MyOrder from "./components/pages/dashboard/MyOrder";
+import Payment from "./components/pages/dashboard/Payment";
 
 function App() {
     return (
@@ -46,6 +47,14 @@ function App() {
                         element={
                             <RequireAuth>
                                 <MyOrder></MyOrder>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                    <Route
+                        path="payment/:id"
+                        element={
+                            <RequireAuth>
+                                <Payment></Payment>
                             </RequireAuth>
                         }
                     ></Route>

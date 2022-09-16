@@ -28,6 +28,8 @@ const MyOrder = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.acknowledged) {
+                    const remain = orders.filter((order) => order._id !== id);
+                    setOrders(remain);
                     toast("Order Delete Successfully");
                 }
             });

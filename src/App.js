@@ -10,6 +10,9 @@ import Purchase from "./components/pages/purchase/Purchase";
 import Dashboard from "./components/pages/dashboard/Dashboard";
 import MyOrder from "./components/pages/dashboard/MyOrder";
 import Payment from "./components/pages/dashboard/Payment";
+import MyProfile from "./components/pages/dashboard/MyProfile";
+import AddReview from "./components/pages/dashboard/AddReview";
+import UpdateProfile from "./components/pages/dashboard/UpdateProfile";
 
 function App() {
     return (
@@ -43,10 +46,34 @@ function App() {
                     }
                 >
                     <Route
+                        index
+                        element={
+                            <RequireAuth>
+                                <MyProfile></MyProfile>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                    <Route
                         path="my-order"
                         element={
                             <RequireAuth>
                                 <MyOrder></MyOrder>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                    <Route
+                        path="add-review"
+                        element={
+                            <RequireAuth>
+                                <AddReview></AddReview>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                    <Route
+                        path="edit-profile"
+                        element={
+                            <RequireAuth>
+                                <UpdateProfile></UpdateProfile>
                             </RequireAuth>
                         }
                     ></Route>

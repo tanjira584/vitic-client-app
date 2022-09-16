@@ -34,64 +34,69 @@ const MyOrder = () => {
                 }
             });
     };
+
     return (
         <div className="m-2">
-            <div className="table-responsive">
-                <table className="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Unite</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {orders.map((order, index) => (
-                            <tr key={order._id}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{order.prodName || order.product}</td>
-                                <td>{order.quantity}</td>
-                                <td>{order.price}</td>
-                                <td>
-                                    {parseInt(order.quantity) *
-                                        parseInt(order.price)}
-                                </td>
-                                <td>
-                                    {order?.paid ? (
-                                        <button className="btn btn-sm btn-success me-2">
-                                            Paid
-                                        </button>
-                                    ) : (
-                                        <Link
-                                            to={`/dashboard/payment/${order._id}`}
-                                            className="btn btn-sm btn-primary me-2"
-                                        >
-                                            Pay
-                                        </Link>
-                                    )}
-                                    {order?.paid ? (
-                                        <button className="btn btn-sm btn-warning ms-2">
-                                            trnsId: 0384839ddhs383
-                                        </button>
-                                    ) : (
-                                        <button
-                                            onClick={() =>
-                                                handleCancel(order._id)
-                                            }
-                                            className="btn btn-sm btn-danger"
-                                        >
-                                            Cancel
-                                        </button>
-                                    )}
-                                </td>
+            {orders.length < 1 ? (
+                <p>You haven't any orders</p>
+            ) : (
+                <div className="table-responsive">
+                    <table className="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Unite</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Action</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            {orders.map((order, index) => (
+                                <tr key={order._id}>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{order.prodName || order.product}</td>
+                                    <td>{order.quantity}</td>
+                                    <td>{order.price}</td>
+                                    <td>
+                                        {parseInt(order.quantity) *
+                                            parseInt(order.price)}
+                                    </td>
+                                    <td>
+                                        {order?.paid ? (
+                                            <button className="btn btn-sm btn-success me-2">
+                                                Paid
+                                            </button>
+                                        ) : (
+                                            <Link
+                                                to={`/dashboard/payment/${order._id}`}
+                                                className="btn btn-sm btn-primary me-2"
+                                            >
+                                                Pay
+                                            </Link>
+                                        )}
+                                        {order?.paid ? (
+                                            <button className="btn btn-sm btn-warning ms-2">
+                                                trnsId: 0384839ddhs383
+                                            </button>
+                                        ) : (
+                                            <button
+                                                onClick={() =>
+                                                    handleCancel(order._id)
+                                                }
+                                                className="btn btn-sm btn-danger"
+                                            >
+                                                Cancel
+                                            </button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     );
 };

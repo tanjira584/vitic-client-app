@@ -25,18 +25,22 @@ const CheckoutForm = ({ order }) => {
             .then((data) => setClientSecret(data.clientSecret));
     }, []);
     */
-    if (Object.keys(order).length > 1) {
-        fetch("http://localhost:5000/client-payment-intent", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify({ price }),
-        })
-            .then((res) => res.json())
-            .then((data) => setClientSecret(data.clientSecret));
-    }
+    useEffect(() => {
+        if (Object.keys(order).length > 1) {
+            fetch("http://localhost:5000/client-payment-intent", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+                body: JSON.stringify({ price }),
+            })
+                .then((res) => res.json())
+                .then((data) => setClientSecret(data.clientSecret));
+        }
+    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!stripe || !elements) {
@@ -73,6 +77,7 @@ const CheckoutForm = ({ order }) => {
             const payment = {
                 order: order._id,
                 transactionId: paymentIntent.id,
+                paid: true,
             };
             fetch(`http://localhost:5000/order/${order._id}`, {
                 method: "PATCH",

@@ -11,6 +11,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
     const { id } = useParams();
     const [order, setOrder] = useState({});
+    const [loading, setLoading] = useState(true);
     /*
     const url = `https://dry-forest-04223.herokuapp.com/order/${id}`;
     
@@ -35,9 +36,14 @@ const Payment = () => {
             },
         })
             .then((res) => res.json())
-            .then((data) => setOrder(data));
+            .then((data) => {
+                setOrder(data);
+                setLoading(false);
+            });
     }, [id]);
-    console.log();
+    if (loading) {
+        return <p className="text-center mt-5">Loading....</p>;
+    }
 
     return (
         <div className="py-3">

@@ -16,8 +16,9 @@ const ReviewSection = () => {
     useEffect(() => {
         fetch("http://localhost:5000/reviews")
             .then((res) => res.json())
-            .then((data) => setReviews(data));
+            .then((data) => setReviews(data.reverse()));
     }, []);
+
     return (
         <div>
             <div className="container-md py-5">
@@ -126,57 +127,64 @@ const ReviewSection = () => {
                         </div>
                     </div>
                     <div className="row g-5">
-                        {reviews.slice(0, 3).map((review) => (
-                            <div className="col-md-4" key={review._id}>
-                                <div className="review h-100">
-                                    <div className="d-flex aligin-items-center mb-2">
-                                        <ul className="m-0 p-0 star-list">
-                                            <li>
-                                                <FontAwesomeIcon
-                                                    className="icon"
-                                                    icon={faStar}
-                                                ></FontAwesomeIcon>
-                                            </li>
-                                            <li>
-                                                <FontAwesomeIcon
-                                                    className="icon"
-                                                    icon={faStar}
-                                                ></FontAwesomeIcon>
-                                            </li>
-                                            <li>
-                                                <FontAwesomeIcon
-                                                    className="icon"
-                                                    icon={faStar}
-                                                ></FontAwesomeIcon>
-                                            </li>
-                                            <li>
-                                                <FontAwesomeIcon
-                                                    className="icon"
-                                                    icon={faStar}
-                                                ></FontAwesomeIcon>
-                                            </li>
-                                            <li>
-                                                <FontAwesomeIcon
-                                                    className="icon"
-                                                    icon={faStarHalfStroke}
-                                                ></FontAwesomeIcon>
-                                            </li>
-                                        </ul>
-                                        <span className="ms-3">03/11/2022</span>
-                                    </div>
-                                    <div className="mb-5">
-                                        {" "}
-                                        <h6>{review.company}</h6>
-                                        <p className="mb-2">{review.desc}</p>
-                                    </div>
-                                    <div className="author">
-                                        <span className="fw-bold text-mute">
-                                            {review.name}
-                                        </span>
+                        {reviews
+                            .slice(0, 3)
+
+                            .map((review) => (
+                                <div className="col-md-4" key={review._id}>
+                                    <div className="review h-100">
+                                        <div className="d-flex aligin-items-center mb-2">
+                                            <ul className="m-0 p-0 star-list">
+                                                <li>
+                                                    <FontAwesomeIcon
+                                                        className="icon"
+                                                        icon={faStar}
+                                                    ></FontAwesomeIcon>
+                                                </li>
+                                                <li>
+                                                    <FontAwesomeIcon
+                                                        className="icon"
+                                                        icon={faStar}
+                                                    ></FontAwesomeIcon>
+                                                </li>
+                                                <li>
+                                                    <FontAwesomeIcon
+                                                        className="icon"
+                                                        icon={faStar}
+                                                    ></FontAwesomeIcon>
+                                                </li>
+                                                <li>
+                                                    <FontAwesomeIcon
+                                                        className="icon"
+                                                        icon={faStar}
+                                                    ></FontAwesomeIcon>
+                                                </li>
+                                                <li>
+                                                    <FontAwesomeIcon
+                                                        className="icon"
+                                                        icon={faStarHalfStroke}
+                                                    ></FontAwesomeIcon>
+                                                </li>
+                                            </ul>
+                                            <span className="ms-3">
+                                                03/11/2022
+                                            </span>
+                                        </div>
+                                        <div className="mb-5">
+                                            {" "}
+                                            <h6>{review.company}</h6>
+                                            <p className="mb-2">
+                                                {review.desc}
+                                            </p>
+                                        </div>
+                                        <div className="author">
+                                            <span className="fw-bold text-mute">
+                                                {review.name}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
                     </div>
                 </div>
             </div>

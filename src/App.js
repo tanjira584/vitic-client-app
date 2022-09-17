@@ -13,6 +13,11 @@ import Payment from "./components/pages/dashboard/Payment";
 import MyProfile from "./components/pages/dashboard/MyProfile";
 import AddReview from "./components/pages/dashboard/AddReview";
 import UpdateProfile from "./components/pages/dashboard/UpdateProfile";
+import ManageUsers from "./components/pages/dashboard/ManageUsers";
+import ManageOrders from "./components/pages/dashboard/ManageOrders";
+import ManageProducts from "./components/pages/dashboard/ManageProducts";
+import AddProduct from "./components/pages/dashboard/AddProduct";
+import RequireAdmin from "./components/pages/auth/RequireAdmin";
 
 function App() {
     return (
@@ -74,6 +79,38 @@ function App() {
                         element={
                             <RequireAuth>
                                 <UpdateProfile></UpdateProfile>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                    <Route
+                        path="manage-user"
+                        element={
+                            <RequireAdmin>
+                                <ManageUsers></ManageUsers>
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
+                        path="manage-order"
+                        element={
+                            <RequireAdmin>
+                                <ManageOrders></ManageOrders>
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
+                        path="manage-product"
+                        element={
+                            <RequireAdmin>
+                                <ManageProducts></ManageProducts>
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
+                        path="add-product"
+                        element={
+                            <RequireAuth>
+                                <AddProduct></AddProduct>
                             </RequireAuth>
                         }
                     ></Route>

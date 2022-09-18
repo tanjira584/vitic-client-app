@@ -18,6 +18,7 @@ import ManageOrders from "./components/pages/dashboard/ManageOrders";
 import ManageProducts from "./components/pages/dashboard/ManageProducts";
 import AddProduct from "./components/pages/dashboard/AddProduct";
 import RequireAdmin from "./components/pages/auth/RequireAdmin";
+import Page404 from "./components/pages/page404/Page404";
 
 function App() {
     return (
@@ -123,6 +124,7 @@ function App() {
                         }
                     ></Route>
                 </Route>
+                <Route path="*" element={<Page404></Page404>}></Route>
             </Routes>
 
             <ToastContainer></ToastContainer>

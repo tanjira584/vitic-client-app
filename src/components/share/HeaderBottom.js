@@ -53,7 +53,7 @@ const HeaderBottom = () => {
                         <div className="col-md-9">
                             <div className="bottom-menu">
                                 <nav className="navbar navbar-expand-lg p-0">
-                                    <ul className="navbar-nav">
+                                    <ul className="navbar-nav ms-auto">
                                         <li className="nav-item">
                                             <Link
                                                 className="active"
@@ -72,15 +72,7 @@ const HeaderBottom = () => {
                                                 Products
                                             </Link>
                                         </li>
-                                        <li className="nav-item">
-                                            <Link
-                                                className=""
-                                                aria-current="page"
-                                                to="/blogs"
-                                            >
-                                                Blogs
-                                            </Link>
-                                        </li>
+
                                         {user && (
                                             <li className="nav-item">
                                                 <Link

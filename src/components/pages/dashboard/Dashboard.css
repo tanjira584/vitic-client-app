@@ -7,10 +7,16 @@
     list-style: none;
 }
 
-.dashboard-sidebar ul li a {
+.dashboard-sidebar ul li a,
+.d-signout-btn {
     text-decoration: none;
     text-transform: capitalize;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
     display: block;
+    text-align: left;
+    color: #fff;
     padding: 10px;
     transition: 0.5s all;
     border-bottom: 1px solid #363636;

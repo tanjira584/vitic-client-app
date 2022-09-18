@@ -20,7 +20,7 @@ const UpdateProfile = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/user/${user.email}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

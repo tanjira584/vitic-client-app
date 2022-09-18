@@ -5,7 +5,7 @@ const ManageUsers = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     if (loading) {
-        fetch("http://localhost:5000/users", {
+        fetch("https://mighty-forest-16400.herokuapp.com/users", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -18,7 +18,7 @@ const ManageUsers = () => {
             });
     }
     const handleRollUpdate = (email) => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/user/admin/${email}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -35,7 +35,7 @@ const ManageUsers = () => {
             });
     };
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/user/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

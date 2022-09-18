@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
     const navigate = useNavigate();
     /*
     useEffect(() => {
-        fetch("http://localhost:5000/client-payment-intent", {
+        fetch("https://mighty-forest-16400.herokuapp.com/client-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -29,16 +29,19 @@ const CheckoutForm = ({ order }) => {
     */
     useEffect(() => {
         if (Object.keys(order).length > 1) {
-            fetch("http://localhost:5000/client-payment-intent", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-                body: JSON.stringify({ price }),
-            })
+            fetch(
+                "https://mighty-forest-16400.herokuapp.com/client-payment-intent",
+                {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                    body: JSON.stringify({ price }),
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => setClientSecret(data.clientSecret));
         }
@@ -81,16 +84,19 @@ const CheckoutForm = ({ order }) => {
                 transactionId: paymentIntent.id,
                 paid: true,
             };
-            fetch(`http://localhost:5000/order/${order._id}`, {
-                method: "PATCH",
-                headers: {
-                    "content-type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-                body: JSON.stringify({ ...payment }),
-            })
+            fetch(
+                `https://mighty-forest-16400.herokuapp.com/order/${order._id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                    body: JSON.stringify({ ...payment }),
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     setProcessing(false);

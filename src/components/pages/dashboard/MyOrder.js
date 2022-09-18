@@ -6,7 +6,7 @@ import "./Dashboard.css";
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/orders", {
+        fetch("https://mighty-forest-16400.herokuapp.com/orders", {
             method: "GET",
             headers: {
                 "content-type": "application/json",
@@ -19,7 +19,7 @@ const MyOrder = () => {
             });
     }, []);
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

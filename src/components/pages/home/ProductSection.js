@@ -6,7 +6,7 @@ import banner5 from "./../../../images/banner-5.webp";
 const ProductSection = () => {
     const [products, setProduct] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://mighty-forest-16400.herokuapp.com/products")
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, []);

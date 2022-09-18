@@ -5,7 +5,7 @@ import "./Dashboard.css";
 const MyProfile = () => {
     const [myProfile, setMyProfile] = useState({});
     useEffect(() => {
-        fetch("http://localhost:5000/user", {
+        fetch("https://mighty-forest-16400.herokuapp.com/user", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

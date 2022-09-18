@@ -29,7 +29,7 @@ const Payment = () => {
     */
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/order/${id}`, {
             method: "Get",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

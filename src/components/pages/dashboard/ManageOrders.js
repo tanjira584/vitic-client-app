@@ -5,7 +5,7 @@ const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     if (loading) {
-        fetch("http://localhost:5000/orders/admin", {
+        fetch("https://mighty-forest-16400.herokuapp.com/orders/admin", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -18,7 +18,7 @@ const ManageOrders = () => {
             });
     }
     const handleShipment = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/order/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -35,7 +35,7 @@ const ManageOrders = () => {
             });
     };
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

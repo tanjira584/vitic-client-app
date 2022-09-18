@@ -9,7 +9,7 @@ const ManageProducts = () => {
         setStock(e.target.value);
     };
     if (loading) {
-        fetch("http://localhost:5000/products")
+        fetch("https://mighty-forest-16400.herokuapp.com/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -18,7 +18,7 @@ const ManageProducts = () => {
     }
 
     const handleStockUpdate = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/product/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -36,7 +36,7 @@ const ManageProducts = () => {
             });
     };
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://mighty-forest-16400.herokuapp.com/product/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
